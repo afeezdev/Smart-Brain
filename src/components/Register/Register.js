@@ -24,7 +24,7 @@ class Register extends React.Component {
 	};
 
 	onRegister = () => {
-		fetch('https://agile-savannah-83536.herokuapp.com/register', {
+		fetch('https://agile-savannah-83536.herokuapp.com/api/users', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/JSON' },
 			body: JSON.stringify({
@@ -35,7 +35,7 @@ class Register extends React.Component {
 		})
 			.then((response) => response.json())
 			.then((user) => {
-				if (user.id) {
+				if (user._id) {
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');
 				}
